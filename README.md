@@ -15,7 +15,7 @@
 *飲み会などのイベントを開催する時
 
 ## 設計書
-*
+https://docs.google.com/spreadsheets/d/1iNy9yzlSHAaYE5Hn16ehuPRv6VdfNBHEwMB3zWBzSGE/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
