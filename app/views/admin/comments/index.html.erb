@@ -1,2 +1,23 @@
-<h1>Admin::Comments#index</h1>
-<p>Find me in app/views/admin/comments/index.html.erb</p>
+<div class="container">
+  <span style="background:#DDDDDD">会員一覧</span></br>
+  <div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>コメント日時</th>
+          <th>コメント内容</th>
+          <th>投稿者</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @comment.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= @comment.comment %></td>
+          <td><%= @comment.customer.id %></td>
+          <td><%= link_to "削除", admin_comment_confirm_path(@comment.id), class: 'btn btn-danger' </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

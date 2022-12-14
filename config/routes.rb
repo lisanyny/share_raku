@@ -20,8 +20,12 @@ Rails.application.routes.draw do
     root to: 'homes#about'
     get 'homes/top'
     get 'customers/my_page', to: 'customers#show', as: 'my_page'
-    resources :customers, only:[:edit, :update, :confirm, :thanks]
-    resources :events, only:[:index, :edit, :update, :new, :create, :confirm, :destroy, :show]
+    get 'customers/confirm', to: 'customers#confirm', as: 'customer_confirm'
+    patch 'customer/thanks', to: 'customers#thanks', as: 'thanks'
+    get 'customers/information/edit', to: 'customers#edit', as: 'edit_information'
+    patch 'customers/information', to: 'customers#update', as: 'update_information'
+    get 'events/confirm', to: 'events#confirm', as: 'event_confirm'
+    resources :events, only:[:index, :edit, :update, :new, :create, :destroy, :show]
     resources :albums, only:[:index, :show]
 
   end
@@ -30,7 +34,9 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :customers, only:[:index, :show, :edit, :update]
-    resources :events, only:[:index, :show, :edit, :update, :confirm, :destroy]
+    get 'events/confirm', to: 'event#confirm', as: 'event_confirm'
+    resources :events, only:[:index, :show, :edit, :update, :destroy]
+    get 'comments/confirm', to: 'commnet#confirm', as: 'comment_confirm'
     resources :comments, only:[:index, :destroy]
 
   end

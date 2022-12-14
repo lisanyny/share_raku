@@ -1,2 +1,37 @@
-<h1>Admin::Events#show</h1>
-<p>Find me in app/views/admin/events/show.html.erb</p>
+<div class="container">
+  <span style="background:#DDDDDD"><%= @event.title %>の予定詳細</span></br>
+  <div class="row">
+    <table>
+      <tr>
+        <th>予定名</th>
+        <td><%= @event.title %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>開催日</th>
+        <td><%= @event.date %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>時間</th>
+        <td><%= @event.start_time %>〜</td>
+        <td><%= @event.end_time %></td>
+      </tr>
+      <tr>
+        <th>行き先</th>
+        <td><%= @event.place %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>集合場所</th>
+        <td><%= @event.meet_place %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>主催者</th>
+        <td><%= @event.customer.id %></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+</div>

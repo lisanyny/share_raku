@@ -1,0 +1,50 @@
+<div class="container">
+  <span style="background:#DDDDDD">イベントの新規作成</span>
+  <div class="row">
+    <%= form_with model: @event, local: true do |f| %>
+
+    <table style="margin:30px;">
+      <tr>
+        <th>イベント名</th>
+        <td><%= f.text_field :title %></td>
+      </tr>
+      <tr>
+        <th>開催日</th>
+        <td><%= f.date_field :date %></td>
+      </tr>
+      <tr>
+        <th>開始時間</th>
+        <td><%= f.time_select :start_time %></td>
+      </tr>
+      <tr>
+        <th>終了時間</th>
+        <td><%= f.time_select :end_time %></td>
+      </tr>
+      <tr>
+        <th>行き先</th>
+        <td><%= f.text_field :place %></td>
+      </tr>
+      <tr>
+        <th>待ち合わせ場所</th>
+        <td><%= f.text_field :meet_place %></td>
+      </tr>
+      <tr>
+        <th>参加者</th>
+        <td>
+          <div>
+          <%= f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :name), include_blank: "選択してください" %>
+          <%= f.submit "追加", class: 'btn btn-info' %>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+
+  </div>
+  <%= f.submit "予定を作成する", class: 'btn btn-success' %>
+  <% end %>
+</div>

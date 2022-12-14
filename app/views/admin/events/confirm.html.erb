@@ -1,2 +1,12 @@
-<h1>Admin::Events#confirm</h1>
-<p>Find me in app/views/admin/events/confirm.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div style="text-align:center;">
+      <h2>本当にコメントを削除しますか？</h2><br>
+      <p>削除すると、コメントを元に戻すことはできません。<br>
+      削除する場合は、「削除する」をクリックしてください。</p>
+
+      <%= link_to "削除しない", admin_comments_path, class: 'btn btn-info' %>
+      <%= link_to "削除する", destroy_comment_path(@comment.id), method: :delete, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>
