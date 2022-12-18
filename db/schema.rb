@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_12_011527) do
+ActiveRecord::Schema.define(version: 2022_12_16_034233) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,14 +59,6 @@ ActiveRecord::Schema.define(version: 2022_12_12_011527) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "event_id", null: false
-    t.string "comment", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -94,13 +86,20 @@ ActiveRecord::Schema.define(version: 2022_12_12_011527) do
     t.integer "customer_id", null: false
     t.integer "album_id"
     t.integer "commnet_id"
-    t.integer "status_id", null: false
     t.date "date", null: false
     t.time "start_time", null: false
     t.time "end_time", null: false
     t.string "place", null: false
     t.string "meet_place", default: "現地集合", null: false
     t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "customer_id", null: false
+    t.integer "status", default: 3, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

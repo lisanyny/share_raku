@@ -1,7 +1,7 @@
 <div class="container">
   <span style="background:#DDDDDD">イベントの新規作成</span>
   <div class="row">
-    <%= form_with model: @event, local: true do |f| %>
+    <%= form_with model: @event, url: events_path do |f| %>
 
     <table style="margin:30px;">
       <tr>
@@ -32,19 +32,15 @@
         <th>参加者</th>
         <td>
           <div>
-          <%= f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :name), include_blank: "選択してください" %>
-          <%= f.submit "追加", class: 'btn btn-info' %>
+            <%= f.select :guest_id, options_from_collection_for_select(Customer.all, :id, :name), include_blank: "選択してください" %>
+            <%#= f.submit "追加", class: 'btn btn-info' %>
           </div>
         </td>
       </tr>
     </table>
-    <table>
-      <tr>
-        <td></td>
-      </tr>
-    </table>
 
   </div>
+  <%= f.hidden_field :customer_id, :value => current_customer.id %>
   <%= f.submit "予定を作成する", class: 'btn btn-success' %>
   <% end %>
 </div>

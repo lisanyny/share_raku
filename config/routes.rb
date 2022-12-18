@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  namespace :public do
+    get 'comments/show'
+    get 'comments/new'
+  end
  # 顧客用
   # URL/customers/sign_in ...
   devise_for :customers,skip: [:passwards], controllers:{
@@ -25,8 +29,9 @@ Rails.application.routes.draw do
     get 'customers/information/edit', to: 'customers#edit', as: 'edit_information'
     patch 'customers/information', to: 'customers#update', as: 'update_information'
     get 'events/confirm', to: 'events#confirm', as: 'event_confirm'
-    resources :events, only:[:index, :edit, :update, :new, :create, :destroy, :show]
+    resources :events, only:[:create, :index, :edit, :update, :new, :destroy, :show]
     resources :albums, only:[:index, :show]
+    resources :guests, only:[:index, :edit, :update]
 
   end
 

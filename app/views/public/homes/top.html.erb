@@ -1,14 +1,18 @@
-<div class="container">
-  <div class="row">
-    <%= month_calendar events: @events do |date, events| %>
-      <%= date.day %>
+<div style="margin:30px">
+<%= month_calendar(attribute: :date, events: @events) do |date, events| %>
+  <%= date.day %>
 
-      <% events.each do |event| %>
-      <div>
-        <%= event.title %>
-        <%= event.start_time %>~<%= event.end_time %>
+  <div class="container">
+    <div class="row">
+      <div style="height:60px;">
+        <% events.each do |event| %>
+          <%= event.title %>
+          <!--<%#= event.start_time.strftime("%H:%M") %><span>〜</span><%#= event.end_time.strftime("%H:%M") %>-->
+        <% end %>
       </div>
       <% end %>
-    <% end %>
+
+    </div>
+    <%= link_to "新規イベントの作成", new_event_path, class: 'btn btn-outline-warning' %>
   </div>
 </div>

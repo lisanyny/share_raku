@@ -5,7 +5,6 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.integer :customer_id, null: false
       t.integer :album_id
       t.integer :commnet_id
-      t.integer :status_id, null: false
       t.date :date, null: false
       t.time :start_time, null: false
       t.time :end_time, null: false

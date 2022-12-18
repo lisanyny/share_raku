@@ -1,0 +1,42 @@
+<div class="container">
+  <span style="background:#DDDDDD"><%= @event.title %>のイベント情報編集</span>
+
+  <%= form_with model: @event, url: event_path(@event.id) do |f| %>
+  <div class="row">
+    <table>
+      <tr>
+        <th>イベント名</th>
+        <td><%= f.text_field :title %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>開催日</th>
+        <td><%= f.date_field :date %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>時間</th>
+        <td><%= f.time_field :start_time %> 〜</td>
+        <td><%= f.time_field :end_time %></td>
+      </tr>
+      <tr>
+        <th>行き先</th>
+        <td><%= f.text_field :place %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>集合場所</th>
+        <td><%= f.text_field :meet_place %></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>主催者</th>
+        <td><%= @event.create_customer.name %></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  <%= f.submit "変更を保存", class: 'btn btn-success' %>
+  <% end %>
+  <%= link_to "削除", event_confirm_path, class: 'btn btn-danger' %>
+</div>
