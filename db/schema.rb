@@ -86,9 +86,8 @@ ActiveRecord::Schema.define(version: 2022_12_16_034233) do
     t.integer "customer_id", null: false
     t.integer "album_id"
     t.integer "commnet_id"
-    t.date "date", null: false
-    t.time "start_time", null: false
-    t.time "end_time", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
     t.string "place", null: false
     t.string "meet_place", default: "現地集合", null: false
     t.string "title", null: false

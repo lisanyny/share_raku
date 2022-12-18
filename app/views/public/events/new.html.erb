@@ -9,16 +9,12 @@
         <td><%= f.text_field :title %></td>
       </tr>
       <tr>
-        <th>開催日</th>
-        <td><%= f.date_field :date %></td>
-      </tr>
-      <tr>
-        <th>開始時間</th>
-        <td><%= f.time_select :start_time %></td>
+        <th>開催日時</th>
+        <td><%= f.datetime_select :start_time %></td>
       </tr>
       <tr>
         <th>終了時間</th>
-        <td><%= f.time_select :end_time %></td>
+        <td><%= f.datetime_select :end_time %></td>
       </tr>
       <tr>
         <th>行き先</th>

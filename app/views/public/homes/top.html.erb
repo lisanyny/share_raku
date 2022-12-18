@@ -1,12 +1,13 @@
 <div style="margin:30px">
-<%= month_calendar(attribute: :date, events: @events) do |date, events| %>
+
+<%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
 
   <div class="container">
     <div class="row">
       <div style="height:60px;">
         <% events.each do |event| %>
-          <%= event.title %>
+          <%= link_to event.title, event_path(event.id) %>
           <!--<%#= event.start_time.strftime("%H:%M") %><span>〜</span><%#= event.end_time.strftime("%H:%M") %>-->
         <% end %>
       </div>

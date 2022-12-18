@@ -35,6 +35,7 @@
                 </li>
 
               <% elsif customer_signed_in? %>
+                <span>ようこそ<%= current_customer.first_name %>さん！</span>
                 <li class="nav-item">
                   <%= link_to "Home", homes_top_path, class: 'btn btn-outline-dark' %>
                 </li>
