@@ -5,15 +5,17 @@
 
   <div class="container">
     <div class="row">
-      <div style="height:60px;">
+      <div style="height:150px; width:100px;">
         <% events.each do |event| %>
-          <%= link_to event.title, event_path(event.id) %>
-          <!--<%#= event.start_time.strftime("%H:%M") %><span>〜</span><%#= event.end_time.strftime("%H:%M") %>-->
+          <%= link_to event.title, event_path(event.id) %><br>
+          <%= event.start_time.strftime("%H:%M") %><span>〜</span><%= event.end_time.strftime("%H:%M") %>
         <% end %>
       </div>
       <% end %>
 
     </div>
-    <%= link_to "新規イベントの作成", new_event_path, class: 'btn btn-outline-warning' %>
+    <div style="text-align:center;">
+      <%= link_to "新規イベントの作成", new_event_path, class: 'btn btn-outline-warning' %>
+    </div>
   </div>
 </div>

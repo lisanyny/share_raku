@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer = current_customer
+    @events = current_customer.events.all
   end
 
   def edit

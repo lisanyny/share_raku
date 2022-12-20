@@ -1,5 +1,5 @@
 <div class="container">
-  <span style="background:#DDDDDD"><%= @customer.first_name+@customer.last_name %>さんの会員情報編集</span>
+  <span class="sub-title"><%= @customer.first_name+@customer.last_name %>さんの会員情報編集</span>
   <%= form_with model: @customer, url: update_information_path do |f| %>
   <div class="row">
     <table>

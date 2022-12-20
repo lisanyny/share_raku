@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 .simple-calendar{
   .day {
@@ -33,4 +34,23 @@
   .current-month {}
   .has-events {}
 
+}
+
+.nav-item{
+  margin-right:10px;
+}
+
+.sub-title{
+  background:#f79e9e;
+  padding:5px;
+  margin:20px;
+}
+
+table{
+  margin:10px;
+}
+
+.nested-fields{
+  height:30px;
+  margin:10px;
 }

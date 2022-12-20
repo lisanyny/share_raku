@@ -1,0 +1,4 @@
+<div class="nested-fields">
+  <%= f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :name), include_blank: "選択してください" %>
+  <%= link_to_remove_association "削除", f %>
+  </div>

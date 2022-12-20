@@ -13,8 +13,9 @@
   <body>
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
+        <a href="/"><%= image_tag 'logo.png', size: "100x100" %></a>
         <div class="container">
-          <a href="/">シェアらく</a>
+
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -22,7 +23,9 @@
             <ul  class="navbar-nav ml-auto">
               <% if current_admin %>
                 <li class="nav-item">
-                  <%= link_to "イベント一覧", admin_events_path, class: 'btn btn-outline-dark' %>
+                  <%= link_to admin_events_path do %>
+                    <i class="">イベント一覧</i>
+                  <% end %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "コメント一覧", admin_comments_path, class: 'btn btn-outline-dark' %>
@@ -35,28 +38,42 @@
                 </li>
 
               <% elsif customer_signed_in? %>
-                <span>ようこそ<%= current_customer.first_name %>さん！</span>
+                <span style="margin-right:30px;">ようこそ<%= current_customer.first_name %>さん！</span>
                 <li class="nav-item">
-                  <%= link_to "Home", homes_top_path, class: 'btn btn-outline-dark' %>
+                  <%= link_to homes_top_path do %>
+                    <i class="fas fa-home"></i>Home
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "マイページ", my_page_path, class: 'btn btn-outline-dark' %>
+                  <%= link_to my_page_path do %>
+                    <i class="fas fa-user"></i>マイページ
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "イベント一覧", events_path, class: 'btn btn-outline-dark' %>
+                  <%= link_to events_path do %>
+                    <i class="fas fa-calendar-days"></i>イベント一覧
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_customer_session_path,  method: :delete, class:'btn btn-outline-dark' %>
+                  <%= link_to destroy_customer_session_path,  method: :delete do %>
+                    <i class="fas fa-right-from-bracket"></i>ログアウト
+                  <% end %>
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to "About", root_path, class: 'btn btn-outline-dark' %>
+                  <%= link_to root_path do %>
+                    <i class="fas fa-star"></i>About
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-outline-dark' %>
+                  <%= link_to new_customer_registration_path do %>
+                    <i class="fas fa-user-plus"></i>新規登録
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログイン", new_customer_session_path, class: 'btn btn-outline-dark' %>
+                  <%= link_to new_customer_session_path do %>
+                    <i class="fas fa-right-to-bracket"></i>ログイン
+                  <% end %>
                 </li>
               <% end %>
             </ul>

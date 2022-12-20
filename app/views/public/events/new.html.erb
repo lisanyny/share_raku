@@ -1,5 +1,5 @@
 <div class="container">
-  <span style="background:#DDDDDD">イベントの新規作成</span>
+  <span class="sub-title">イベントの新規作成</span>
   <div class="row">
     <%= form_with model: @event, url: events_path do |f| %>
 
@@ -28,15 +28,23 @@
         <th>参加者</th>
         <td>
           <div>
-            <%= f.select :guest_id, options_from_collection_for_select(Customer.all, :id, :name), include_blank: "選択してください" %>
-            <%#= f.submit "追加", class: 'btn btn-info' %>
+            <%= f.fields_for :guests do |form| %>
+              <%= render "public/events/guest_fields", f: form %>
+              <div id="detail-association-insertion-point"></div>
+            <% end %>
+
+           <%= link_to_add_association "追加", f, :guests, class: 'btn btn-outline-info',data: {
+          association_insertion_node: '#detail-association-insertion-point',
+          association_insertion_method: 'before'
+          } %>
+
           </div>
         </td>
       </tr>
     </table>
 
   </div>
-  <%= f.hidden_field :customer_id, :value => current_customer.id %>
-  <%= f.submit "予定を作成する", class: 'btn btn-success' %>
+    <%= f.hidden_field :customer_id, :value => current_customer.id %>
+    <%= f.submit "予定を作成する", class: 'btn btn-success' %>
   <% end %>
 </div>

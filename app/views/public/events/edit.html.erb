@@ -1,5 +1,5 @@
 <div class="container">
-  <span style="background:#DDDDDD"><%= @event.title %>のイベント情報編集</span>
+  <span class="sub-title"><%= @event.title %>のイベント情報編集</span>
 
   <%= form_with model: @event, url: event_path(@event.id) do |f| %>
   <div class="row">
@@ -7,32 +7,26 @@
       <tr>
         <th>イベント名</th>
         <td><%= f.text_field :title %></td>
-        <td></td>
       </tr>
       <tr>
-        <th>開催日</th>
-        <td><%= f.date_field :date %></td>
-        <td></td>
+        <th>開催日時</th>
+        <td><%= f.datetime_select :start_time %></td>
       </tr>
       <tr>
-        <th>時間</th>
-        <td><%= f.time_field :start_time %> 〜</td>
-        <td><%= f.time_field :end_time %></td>
+        <th>終了日時</th>
+        <td><%= f.datetime_select :end_time %></td>
       </tr>
       <tr>
         <th>行き先</th>
         <td><%= f.text_field :place %></td>
-        <td></td>
       </tr>
       <tr>
         <th>集合場所</th>
         <td><%= f.text_field :meet_place %></td>
-        <td></td>
       </tr>
       <tr>
         <th>主催者</th>
-        <td><%= @event.create_customer.name %></td>
-        <td></td>
+        <td><%= @event.create_customer.last_name %></td>
       </tr>
     </table>
   </div>

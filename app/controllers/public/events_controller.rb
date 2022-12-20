@@ -10,12 +10,16 @@ class Public::EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @guest = @event.guests.build
   end
 
   def create
     @event = Event.new(event_params)
-    @event.save!
-    redirect_to homes_top_path
+    if @event.save!
+      redirect_to homes_top_path
+    else
+      render action: :new
+    end
   end
 
   def edit
@@ -41,7 +45,7 @@ class Public::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :place, :meet_place, :comment_id)
+    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :place, :meet_place, :comment_id,guests_attributes:[ :event_id, :customer_id, :status, :_destroy]).merge(customer_id: current_customer.id)
   end
 
 end
