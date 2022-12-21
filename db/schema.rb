@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2022_12_16_034233) do
   create_table "guests", force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "customer_id", null: false
-    t.integer "status", default: 3, null: false
+    t.integer "status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

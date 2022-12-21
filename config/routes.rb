@@ -29,9 +29,10 @@ Rails.application.routes.draw do
     get 'customers/information/edit', to: 'customers#edit', as: 'edit_information'
     patch 'customers/information', to: 'customers#update', as: 'update_information'
     get 'events/confirm', to: 'events#confirm', as: 'event_confirm'
+    get 'events/:id/guests', to: 'events#guests', as: 'event_guests'
     resources :events, only:[:create, :index, :edit, :update, :new, :destroy, :show]
     resources :albums, only:[:index, :show]
-    resources :guests, only:[:index, :edit, :update]
+    resources :guests, only:[:index, :edit, :update, :create]
 
   end
 

@@ -42,6 +42,12 @@ class Public::EventsController < ApplicationController
     redirect_to my_path
   end
 
+  def guests
+    @event = Event.find(params[:id])
+    @guest = @event.customer_id
+  end
+
+
   private
 
   def event_params

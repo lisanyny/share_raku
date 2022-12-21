@@ -2,3 +2,9 @@ ja:
   simple_calendar:
     previous: "<<　"
     next: "　>>"
+  enums:
+    guest:
+      joining_status:
+        participation: "参加"
+        no_join: "不参加"
+        waiting: "選択中"

@@ -4,7 +4,7 @@ class CreateGuests < ActiveRecord::Migration[6.1]
 
       t.integer :event_id, null: false
       t.integer :customer_id, null: false
-      t.integer :status, null: false, default: 3
+      t.integer :status, null: false
 
       t.timestamps
     end

@@ -1,4 +1,18 @@
 <div class="nested-fields">
   <%= f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :name), include_blank: "選択してください" %>
+  <div style="display:inline-block">
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :status, :participation %>
+        <%= f.label :status, "参加" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :status, :no_join %>
+        <%= f.label :status, "不参加" %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :status, :waiting, checked: true %>
+        <%= f.label :status, "選択中" %>
+      </div>
+    </div>
   <%= link_to_remove_association "削除", f %>
   </div>
