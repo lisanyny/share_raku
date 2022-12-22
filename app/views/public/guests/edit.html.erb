@@ -1,0 +1,46 @@
+<div class="container">
+  <span class="sub-title"><%= @guest.customer.first_name+@guest.customer.last_name %>さんのイベント参加状況の変更</span>
+  <%= form_with model: @guest, url: event_guest_path do |f| %>
+  <div class="row">
+    <table>
+      <tr>
+        <th>イベント名</th>
+        <td><%= @guest.event.title %></td>
+      </tr>
+      <tr>
+        <th>開催日</th>
+        <td><%= @guest.event.start_time.strftime("%Y/%m/%d(%a)") %></td>
+      </tr>
+      <tr>
+        <th>時間</th>
+        <td><%= @guest.event.start_time.strftime("%H:%M") %>〜<%= @guest.event.end_time.strftime("%H:%M") %></td>
+      </tr>
+      <tr>
+        <th>名前</th>
+        <td><%= @guest.customer.first_name+@guest.customer.last_name %></td>
+      </tr>
+      <tr>
+        <th>参加状況</th>
+        <td>
+         <div style="display:inline-block">
+           <div class="form-check form-check-inline">
+             <%= f.radio_button :status, :participation %>
+             <%= f.label :status, "参加" %>
+           </div>
+           <div class="form-check form-check-inline">
+             <%= f.radio_button :status, :no_join %>
+             <%= f.label :status, "不参加" %>
+           </div>
+           <div class="form-check form-check-inline">
+             <%= f.radio_button :status, :waiting %>
+             <%= f.label :status, "選択中" %>
+           </div>
+         </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <%= f.submit "変更を保存", class: 'btn btn-success' %>
+  <%= link_to "戻る", event_guests_path(@event.id), class: 'btn btn-info' %>
+  <% end %>
+</div>

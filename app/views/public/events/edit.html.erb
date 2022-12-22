@@ -30,6 +30,27 @@
       </tr>
     </table>
   </div>
+
+  <span class="sub-title">参加状況編集</span>
+  <table>
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>参加状況</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @guests.each do |guest| %>
+      <tr>
+        <td><%= guest.customer.first_name+guest.customer.last_name %></td>
+        <td><%= guest.status_i18n %></td>
+        <td><%= link_to "編集する", edit_event_guest_path(@event.id,guest.id), class: 'btn btn-info' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
   <%= f.submit "変更を保存", class: 'btn btn-success' %>
   <% end %>
   <%= link_to "削除", event_confirm_path, class: 'btn btn-danger' %>

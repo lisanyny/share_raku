@@ -1,5 +1,5 @@
 <div class=container>
-  <span style="background:#DDDDDD">新規会員登録</span>
+  <span class="sub-title">新規会員登録</span>
   <div class="row">
 
     <%= form_with model: @customer, url: customer_registration_path do |f| %>
@@ -34,7 +34,7 @@
 <% end %>
  </div>
 
-<span style="background:#DDDDDD">既に登録済みの方</span></br>
+<span class="sub-title">既に登録済みの方</span></br>
 <%= link_to "こちら", customer_session_path %>からログインしてください。
 
 </div>

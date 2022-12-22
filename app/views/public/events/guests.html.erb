@@ -11,11 +11,17 @@
       </tr>
     </thead>
     <tbody>
+      <% @guests.each do |guest| %>
       <tr>
-        <td><%=  %></td>
-        <td><%=  %></td>
-        <td><%#= link_to "編集する", edit_guest_path(@guest.id), class: 'btn btn-success' %></td>
+        <td><%= guest.customer.first_name+guest.customer.last_name %></td>
+        <td><%= guest.status_i18n %></td>
+        <td>
+          <% if guest.customer.id == current_customer.id %>
+            <%= link_to "編集する", edit_event_guest_path(@event.id,guest.id), class: 'btn btn-info' %>
+          <% end %>
+        </td>
       </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

@@ -29,5 +29,8 @@
     </table>
   </div>
   <%= link_to "参加者一覧", event_guests_path, class: 'btn btn-success' %>
+  <% if @event.customer_id == current_customer.id %>
+    <%= link_to "編集する", edit_event_path(@event.id), class: 'btn btn-info' %>
+  <% end %>
 
 </div>

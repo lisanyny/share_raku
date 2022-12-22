@@ -3,7 +3,7 @@
   <div class="row">
     <%= form_with model:@customer, url: customer_session_path do |f| %>
     <div style="margin:30px;">
-      <span style="background:#DDDDDD">会員の方はこちらからログイン</span><br>
+      <span class="sub-title">会員の方はこちらからログイン</span><br>
       <table>
         <tr style="height:80px;">
           <th style="width:200px;">メールアドレス</th>
@@ -22,7 +22,7 @@
 
     <% end %>
   <div style="margin:30px;">
-    <span style="background:#DDDDDD">会員登録がお済みでない方</span><br>
+    <span class="sub-title">会員登録がお済みでない方</span><br>
     <span><%= link_to "こちら", new_customer_registration_path %>から新規登録を行なってください</span>
   </div>
 </div>
