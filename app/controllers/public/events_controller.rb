@@ -1,7 +1,7 @@
 class Public::EventsController < ApplicationController
   def index
-    @events = Event.page(params[:page])
     @customer_name = current_customer.first_name
+    @events = Event.page(params[:page])
   end
 
   def show
@@ -24,6 +24,7 @@ class Public::EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @guests = @event.guests.all
   end
 
   def update
@@ -39,12 +40,12 @@ class Public::EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.delete
-    redirect_to my_path
+    redirect_to my_page_path
   end
 
   def guests
     @event = Event.find(params[:id])
-    @guest = @event.customer_id
+    @guests = @event.guests.where.not(status: 2)
   end
 
 
