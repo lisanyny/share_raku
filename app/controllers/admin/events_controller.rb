@@ -23,7 +23,7 @@ class Admin::EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
+    @event.delete
     redirect_to admin_events_path
   end
 
