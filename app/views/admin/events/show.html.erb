@@ -1,37 +1,33 @@
 <div class="container">
-  <span style="background:#DDDDDD"><%= @event.title %>の予定詳細</span></br>
+  <span class="sub-title"><%= @event.title %>の予定詳細</span></br>
   <div class="row">
     <table>
       <tr>
         <th>予定名</th>
         <td><%= @event.title %></td>
-        <td></td>
       </tr>
       <tr>
         <th>開催日</th>
-        <td><%= @event.date %></td>
-        <td></td>
+        <td><%= @event.start_time.strftime("%Y/%m/%d (%a)")%></td>
       </tr>
       <tr>
         <th>時間</th>
-        <td><%= @event.start_time %>〜</td>
-        <td><%= @event.end_time %></td>
+        <td><%= @event.start_time.strftime("%H:%M") %>〜<%= @event.end_time.strftime("%H:%M") %></td>
       </tr>
       <tr>
         <th>行き先</th>
         <td><%= @event.place %></td>
-        <td></td>
       </tr>
       <tr>
         <th>集合場所</th>
         <td><%= @event.meet_place %></td>
-        <td></td>
       </tr>
       <tr>
         <th>主催者</th>
-        <td><%= @event.customer.id %></td>
-        <td></td>
+        <td><%= @event.customer.name %></td>
       </tr>
     </table>
   </div>
+  <%= link_to "編集する", edit_admin_event_path(@event.id), class: 'btn btn-info' %>
+  <%= link_to "戻る", admin_events_path, class: 'btn btn-success' %>
 </div>

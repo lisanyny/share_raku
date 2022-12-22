@@ -1,5 +1,5 @@
 <div class="container">
-  <span style="background:#DDDDDD">イベント一覧</span></br>
+  <span class="sub-title">イベント一覧</span></br>
   <div class="row">
     <table class="table table-hover table-inverse" style="margin:20px;">
       <thead>
@@ -12,9 +12,9 @@
       <tbody>
         <% @events.each do |event| %>
         <tr>
-          <td><%= event.date.strftime("%Y/%m/%d (%a)" %></td>
-          <td><%= event.title %></td>
-          <td><%= event.customer.id %></td>
+          <td><%= event.start_time.strftime("%Y/%m/%d (%a)") %></td>
+          <td><%= link_to event.title, admin_event_path(event.id) %></td>
+          <td><%= event.customer.name %></td>
         </tr>
         <% end %>
       </tbody>

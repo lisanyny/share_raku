@@ -1,22 +1,19 @@
 <div class="container">
-  <span style="background:#DDDDDD"><%= @event.title %>の予定情報編集</span></br>
+  <span class="sub-title"><%= @event.title %>の予定情報編集</span></br>
   <div class="row">
-    <%= form_with model: @event, url: amin_event_path(@event.id) do |f| %>
+    <%= form_with model: @event, url: admin_event_path(@event.id) do |f| %>
     <table>
       <tr>
         <th>予定名</th>
         <td><%= f.text_field :title %></td>
-        <td></td>
       </tr>
       <tr>
-        <th>開催日</th>
-        <td><%= f.date_field :date %></td>
-        <td></td>
+        <th>開催日時</th>
+        <td><%= f.datetime_select :start_time %></td>
       </tr>
       <tr>
-        <th>時間</th>
-        <td><%= f.time_select :start_time %> 〜</td>
-        <td><%= f.time_select :end_time %></td>
+        <th>終了日時</th>
+        <td><%= f.datetime_select :end_time %></td>
       </tr>
       <tr>
         <th>行き先</th>
@@ -30,13 +27,12 @@
       </tr>
       <tr>
         <th>主催者</th>
-        <td><%= @event.customer_id %></td>
+        <td><%= @event.customer.name %></td>
         <td></td>
       </tr>
     </table>
     <%= f.submit "変更を保存", class: 'btn btn-success' %>
     <% end %>
-    <%= link_to "削除", admin_event_confirm_path(@event.id), class: 'btn btn-danger' %>
-
   </div>
+  <%= link_to "削除", admin_event_confirm_path, class: 'btn btn-danger' %>
 </div>
