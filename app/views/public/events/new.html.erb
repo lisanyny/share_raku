@@ -1,8 +1,8 @@
 <div class="container">
   <span class="sub-title">イベントの新規作成</span>
+  <%#= @places.first.inspect %>
   <div class="row">
     <%= form_with model: @event, url: events_path do |f| %>
-
     <table style="margin:30px;">
       <tr>
         <th>イベント名</th>
@@ -18,7 +18,9 @@
       </tr>
       <tr>
         <th>行き先</th>
-        <td><%= f.text_field :place %></td>
+        <td>
+
+        </td>
       </tr>
       <tr>
         <th>待ち合わせ場所</th>

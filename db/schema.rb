@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_16_034233) do
+ActiveRecord::Schema.define(version: 2022_12_28_063807) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 2022_12_16_034233) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "event_id", null: false
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -84,11 +92,10 @@ ActiveRecord::Schema.define(version: 2022_12_16_034233) do
 
   create_table "events", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "album_id"
     t.integer "commnet_id"
     t.datetime "start_time", null: false
     t.datetime "end_time", null: false
-    t.string "place", null: false
+    t.integer "place_id", null: false
     t.string "meet_place", default: "現地集合", null: false
     t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -105,6 +112,13 @@ ActiveRecord::Schema.define(version: 2022_12_16_034233) do
 
   create_table "photos", force: :cascade do |t|
     t.integer "customer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "place", null: false
+    t.string "address", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

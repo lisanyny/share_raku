@@ -1,9 +1,10 @@
 <div class="container">
   <span class="sub-title">会員一覧</span></br>
   <div class="row">
-    <table>
+    <table class="table table-hover table-inverse" style="margin:20px;">
       <thead>
         <tr>
+          <th>イベント名</th>
           <th>コメント日時</th>
           <th>コメント内容</th>
           <th>投稿者</th>
@@ -11,12 +12,15 @@
         </tr>
       </thead>
       <tbody>
+        <% @comments.each do |comment| %>
         <tr>
-          <td><%= @comment.created_at.strftime('%Y/%m/%d') %></td>
-          <td><%= @comment.comment %></td>
-          <td><%= @comment.customer.id %></td>
-          <td><%= link_to "削除", admin_comment_confirm_path(@comment.id), class: 'btn btn-danger' </td>
+          <td><%= comment.event.title %></td>
+          <td><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+          <td><%= comment.comment %></td>
+          <td><%= comment.customer.first_name+comment.customer.last_name %></td>
+          <td><%= link_to "削除", admin_comment_path(comment.id), method: :delete, class: 'btn btn-danger', "data-confirm" => "削除しますか？" %></td>
         </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

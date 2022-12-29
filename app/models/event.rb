@@ -4,6 +4,6 @@ class Event < ApplicationRecord
  has_many :comments, dependent: :destroy
  has_many :guests, dependent: :destroy
  accepts_nested_attributes_for :guests, allow_destroy: true
-
+ has_many :places, dependent: :destroy
 
 end

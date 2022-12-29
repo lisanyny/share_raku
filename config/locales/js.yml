@@ -4,7 +4,7 @@ ja:
     next: "　>>"
   enums:
     guest:
-      joining_status:
+      status:
         participation: "参加"
         no_join: "不参加"
         waiting: "選択中"

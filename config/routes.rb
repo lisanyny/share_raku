@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-
-  namespace :public do
-    get 'comments/show'
-    get 'comments/new'
-  end
  # 顧客用
   # URL/customers/sign_in ...
   devise_for :customers,skip: [:passwards], controllers:{
@@ -28,11 +23,12 @@ Rails.application.routes.draw do
     patch 'customer/thanks', to: 'customers#thanks', as: 'thanks'
     get 'customers/information/edit', to: 'customers#edit', as: 'edit_information'
     patch 'customers/information', to: 'customers#update', as: 'update_information'
-    get 'events/confirm', to: 'events#confirm', as: 'event_confirm'
+    get 'events/:id/confirm', to: 'events#confirm', as: 'event_confirm'
     get 'events/:id/guests', to: 'events#guests', as: 'event_guests'
-    resources :events, only:[:create, :index, :edit, :update, :new, :destroy, :show]
-    resources :albums, only:[:index, :show]
-    resources :guests, only:[:index, :edit, :update, :create]
+    resources :events, only:[:create, :index, :edit, :update, :new, :destroy, :show] do
+     resources :guests, only:[:edit, :update, :create]
+     resources :comments, only:[:create, :destroy]
+    end
 
   end
 
@@ -40,10 +36,10 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :customers, only:[:index, :show, :edit, :update]
-    get 'events/confirm', to: 'event#confirm', as: 'event_confirm'
+    get 'events/:id/confirm', to: 'events#confirm', as: 'event_confirm'
     resources :events, only:[:index, :show, :edit, :update, :destroy]
-    get 'comments/confirm', to: 'commnet#confirm', as: 'comment_confirm'
     resources :comments, only:[:index, :destroy]
+    resources :places, only:[:new, :create, :edit, :update, :index, :destroy]
 
   end
 

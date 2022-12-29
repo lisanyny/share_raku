@@ -1,0 +1,18 @@
+<div class="container">
+  <span class="sub-title">行き先新規登録</span>
+  <%= form_with model: @place, url: admin_places_path do |f| %>
+   <div class="row">
+    <table>
+      <tr>
+        <th>行き先</th>
+        <td><%= f.text_field :place %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+    </table>
+      </div>
+  <%= f.submit "作成する", class: 'btn btn-success' %>
+  <% end %>
+</div>

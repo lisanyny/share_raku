@@ -6,6 +6,7 @@ class Public::EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -48,11 +49,10 @@ class Public::EventsController < ApplicationController
     @guests = @event.guests.where.not(status: 2)
   end
 
-
   private
 
   def event_params
-    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :place, :meet_place, :comment_id,guests_attributes:[ :event_id, :customer_id, :status, :_destroy]).merge(customer_id: current_customer.id)
+    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :place_id, :meet_place, :comment_id,guests_attributes:[ :event_id, :customer_id, :status, :_destroy]).merge(customer_id: current_customer.id)
   end
 
 end

@@ -23,18 +23,29 @@
             <ul  class="navbar-nav ml-auto">
               <% if current_admin %>
                 <li class="nav-item">
-                  <%= link_to admin_events_path do %>
-                    <i class="">イベント一覧</i>
+                  <%= link_to admin_customers_path do %>
+                    <i class="fas fa-users"></i>会員一覧
                   <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "コメント一覧", admin_comments_path, class: 'btn btn-outline-dark' %>
+                  <%= link_to admin_events_path do %>
+                    <i class="fas fa-calendar-days"></i>イベント一覧
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "会員一覧", admin_customers_path, class: 'btn btn-outline-dark' %>
+                  <%= link_to admin_places_path do %>
+                    <i class="fas fa-store"></i>行き先一覧
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_admin_session_path,  method: :delete, class: 'btn btn-outline-dark' %>
+                  <%= link_to admin_comments_path do %>
+                    <i class="fas fa-comments"></i>コメント一覧
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to destroy_admin_session_path,  method: :delete do %>
+                   <i class="fas fa-right-from-bracket"></i>ログアウト
+                  <% end %>
                 </li>
 
               <% elsif customer_signed_in? %>

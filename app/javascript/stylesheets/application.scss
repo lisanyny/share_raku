@@ -4,6 +4,8 @@
 .simple-calendar{
   .day {
     background:white;
+    border:solid;
+    border-color:#dcdcdc;
   }
 
   .wday-0 {
@@ -37,7 +39,8 @@
 }
 
 .nav-item{
-  margin-right:10px;
+  margin-right:20px;
+  color:black;
 }
 
 .sub-title{
@@ -53,4 +56,17 @@ table{
 .nested-fields{
   height:30px;
   margin:10px;
+}
+
+.comment-status{
+ padding:10px 0;
+}
+
+.comment-field{
+  border-top:solid;
+}
+
+.container{
+  font-family:メイリオ, Meiryo;
+  padding:20px;
 }

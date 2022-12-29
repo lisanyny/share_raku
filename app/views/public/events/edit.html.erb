@@ -3,7 +3,7 @@
 
   <%= form_with model: @event, url: event_path(@event.id) do |f| %>
   <div class="row">
-    <table>
+    <table class="table table-hover table-inverse">
       <tr>
         <th>イベント名</th>
         <td><%= f.text_field :title %></td>
@@ -26,13 +26,13 @@
       </tr>
       <tr>
         <th>主催者</th>
-        <td><%= @event.create_customer.last_name %></td>
+        <td><%= @event.customer.first_name+@event.customer.last_name %></td>
       </tr>
     </table>
   </div>
 
   <span class="sub-title">参加状況編集</span>
-  <table>
+  <table class="table table-hover table-inverse">
     <thead>
       <tr>
         <th>名前</th>
@@ -52,6 +52,7 @@
   </table>
 
   <%= f.submit "変更を保存", class: 'btn btn-success' %>
-  <% end %>
   <%= link_to "削除", event_confirm_path, class: 'btn btn-danger' %>
+  <% end %>
+
 </div>
