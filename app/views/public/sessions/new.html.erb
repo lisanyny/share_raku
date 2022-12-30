@@ -1,12 +1,11 @@
 <div class="container">
-  <h3><strong>ログイン</strong></h3>
   <div class="row">
     <%= form_with model:@customer, url: customer_session_path do |f| %>
     <div style="margin:30px;">
       <span class="sub-title">会員の方はこちらからログイン</span><br>
       <table>
-        <tr style="height:80px;">
-          <th style="width:200px;">メールアドレス</th>
+        <tr>
+          <th>メールアドレス</th>
           <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %> </td>
         </tr>
         <tr>
@@ -15,15 +14,15 @@
         </tr>
       </table>
     </div>
-  </div>
-  <div class="actions" style="text-align:center;">
-    <%= f.submit "ログイン", class: 'btn btn-info' %>
+    <div class="actions" style="text-align:center;">
+      <%= f.submit "ログイン", class: 'btn btn-info' %>
+    </div>
   </div>
 
     <% end %>
   <div style="margin:30px;">
     <span class="sub-title">会員登録がお済みでない方</span><br>
-    <span><%= link_to "こちら", new_customer_registration_path %>から新規登録を行なってください</span>
+    <div style="margin-top:20px;"><%= link_to "こちら", new_customer_registration_path %>から新規登録を行なってください</div>
   </div>
 </div>
 
