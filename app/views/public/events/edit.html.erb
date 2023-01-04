@@ -3,7 +3,7 @@
 
   <%= form_with model: @event, url: event_path(@event.id) do |f| %>
   <div class="row">
-    <table class="table table-hover table-inverse">
+    <table>
       <tr>
         <th>イベント名</th>
         <td><%= f.text_field :title %></td>
@@ -18,7 +18,7 @@
       </tr>
       <tr>
         <th>行き先</th>
-        <td><%= f.text_field :place %></td>
+        <td><%= f.select :place_id, options_from_collection_for_select(Place.all, :id, :name) %></td>
       </tr>
       <tr>
         <th>集合場所</th>

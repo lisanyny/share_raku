@@ -2,8 +2,15 @@
   <h5>ようこそ <%= current_customer.first_name %>さん！</h5>
 </div>
 
-<div style="border:1px solid; border-radius: 50px;">
-  <h4>　　<< 本日の予定　>></h4>
+<div class="today-area">
+  <div class="today-event sub-title">　　 本日のイベント　</div>
+  <ul>
+    <% @events.each do |event| %>
+      <% if event.start_time.to_date == Date.today %>
+        <li><%= event.title %></li>
+      <% end %>
+    <% end %>
+  </ul>
 </div>
 
 <div style="margin:30px">
@@ -14,10 +21,12 @@
 
   <div class="container">
     <div class="row">
-      <div style="height:150px; width:100px;">
+      <div style="height:150px; width:120px;">
         <% events.each do |event| %>
+          <li>
           <%= link_to event.title, event_path(event.id) %><br>
           <%= event.start_time.strftime("%H:%M") %><span>〜</span><%= event.end_time.strftime("%H:%M") %>
+          </li>
         <% end %>
       </div>
       <% end %>

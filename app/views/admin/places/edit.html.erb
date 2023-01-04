@@ -1,2 +1,18 @@
-<h1>Admin::Places#edit</h1>
-<p>Find me in app/views/admin/places/edit.html.erb</p>
+<div class="container">
+  <span class="sub-title"><%= @place.name %>の情報編集</span>
+  <%= form_with model: @place, url: admin_place_path(@place.id) do |f| %>
+  <div class="row">
+    <table>
+      <tr>
+        <th>行き先</th>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td><%= f.text_field :address %></td>
+      </tr>
+    </table>
+  </div>
+  <%= f.submit "変更を保存", class: 'btn btn-success'%>
+  <% end %>
+</div>

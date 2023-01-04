@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
   def show
     @customer = current_customer
-    @events = current_customer.events.all
+    @events = current_customer.events.page(params[:page]).order(start_time: "ASC")
   end
 
   def edit

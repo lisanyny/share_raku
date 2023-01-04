@@ -1,11 +1,20 @@
 <div class="container">
-  <span class="sub-title">行き先新規登録</span>
+  <span class="sub-title">行き先新規登録</span><br>
+  <% if @place.errors.any? %>
+  <%= @place.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @place.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
   <%= form_with model: @place, url: admin_places_path do |f| %>
    <div class="row">
     <table>
       <tr>
         <th>行き先</th>
-        <td><%= f.text_field :place %></td>
+        <td><%= f.text_field :name %></td>
       </tr>
       <tr>
         <th>住所</th>

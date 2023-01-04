@@ -1,6 +1,6 @@
 class Admin::EventsController < ApplicationController
   def index
-    @events = Event.page(params[:page])
+    @events = Event.page(params[:page]).order(start_time: "ASC")
   end
 
   def show
@@ -30,7 +30,7 @@ class Admin::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(event).permit(:date, :title, :customer_id, :album_id, :commnet_id, :status_id, :time, :place, :meet_place)
+    params.require(:event).permit(:date, :title, :customer_id, :album_id, :commnet_id, :status_id, :time, :place_id, :meet_place)
   end
 
 end

@@ -1,7 +1,7 @@
 class Public::EventsController < ApplicationController
   def index
     @customer_name = current_customer.first_name
-    @events = Event.page(params[:page])
+    @events = Event.page(params[:page]).where("start_time >= ?",Date.today).order(start_time: "ASC")
   end
 
   def show
@@ -16,7 +16,7 @@ class Public::EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    if @event.save!
+    if @event.save
       redirect_to homes_top_path
     else
       render action: :new

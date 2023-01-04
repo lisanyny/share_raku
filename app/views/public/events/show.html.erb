@@ -1,30 +1,36 @@
 <div class="container">
   <span class="sub-title"><%= @event.title %>のイベント詳細</span>
   <div class="row">
-    <table>
+    <table style="margin:20px 0 50px;">
       <tr>
         <th>イベント名</th>
         <td><%= @event.title %></td>
+        <td></td>
       </tr>
       <tr>
         <th>開催日</th>
         <td><%= @event.start_time.strftime("%Y/%m/%d (%a)") %></td>
+        <td></td>
       </tr>
       <tr>
         <th>時間</th>
         <td><%= @event.start_time.strftime("%H:%M") %>〜<%= @event.end_time.strftime("%H:%M") %></td>
+        <td></td>
       </tr>
       <tr>
         <th>行き先</th>
-        <td><%= @event.place %></td>
+        <td><%= @event.place.name %></td>
+        <td></td>
       </tr>
       <tr>
         <th>集合場所</th>
         <td><%= @event.meet_place %></td>
+        <td></td>
       </tr>
       <tr>
         <th>主催者</th>
         <td><%= @event.customer.first_name+@event.customer.last_name %></td>
+        <td></td>
       </tr>
     </table>
   </div>

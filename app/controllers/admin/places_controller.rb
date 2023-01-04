@@ -5,8 +5,11 @@ class Admin::PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @place.save!
-    redirect_to admin_places_path
+    if @place.save
+      redirect_to admin_places_path
+    else
+      render :new
+    end
   end
 
   def index
@@ -32,7 +35,7 @@ class Admin::PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:place, :address)
+    params.require(:place).permit(:name, :address)
   end
 
 end

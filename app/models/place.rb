@@ -1,5 +1,8 @@
 class Place < ApplicationRecord
 
-  belongs_to :event
+  has_many :events, dependent: :destroy
+
+  validates :name, presence: true
+  validates :address, presence: true
 
 end

@@ -8,3 +8,10 @@ ja:
         participation: "参加"
         no_join: "不参加"
         waiting: "選択中"
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: "..."

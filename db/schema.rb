@@ -92,12 +92,12 @@ ActiveRecord::Schema.define(version: 2022_12_28_063807) do
 
   create_table "events", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "commnet_id"
+    t.integer "comment_id"
     t.datetime "start_time", null: false
     t.datetime "end_time", null: false
-    t.integer "place_id", null: false
     t.string "meet_place", default: "現地集合", null: false
     t.string "title", null: false
+    t.integer "place_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 2022_12_28_063807) do
   end
 
   create_table "places", force: :cascade do |t|
-    t.string "place", null: false
+    t.string "name", null: false
     t.string "address", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

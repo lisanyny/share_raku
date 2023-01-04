@@ -2,7 +2,7 @@
   <span class="sub-title"><%= @customer.first_name+@customer.last_name %>さんのマイページ</span>
   <div style="text-align:right;"><%= link_to "登録情報の編集", edit_information_path(current_customer), class:'btn btn-info' %></div>
   <div class="row">
-    <table>
+    <table style="margin:20px 0 50px;">
       <tr style="height:80px;">
         <th style="width:200px;">氏名</th>
         <td><%= @customer.first_name+"　"+@customer.last_name%></td>
@@ -36,7 +36,7 @@
         <% end %>
       </tbody>
     </table>
-    <%#= paginate @events %>
+    <%= paginate @events %>
     </div>
 
 </div>

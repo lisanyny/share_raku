@@ -9,7 +9,7 @@
   }
 
   .wday-0 {
-    background: #ffcccc;
+    background: #ffeded;
     color: #ff3333;
   }
   .wday-1 {}
@@ -18,7 +18,7 @@
   .wday-4 {}
   .wday-5 {}
   .wday-6 {
-    background: #bad3ff;
+    background: #deeaff;
     color: #0066ff;
   }
   .today{
@@ -28,14 +28,26 @@
   .future {}
   .start-date {}
   .prev-month {
-    background:#cccccc;
+    background:#e6e6e6;
   }
   .next-month {
-    background:#cccccc;
+    background:#e6e6e6;
   }
   .current-month {}
   .has-events {}
 
+}
+
+.today-area{
+   border:3px solid #f28d35;
+   border-radius: 50px;
+   height:150px;
+   margin:50px;
+}
+
+.today-event{
+  font-size:20px;
+  margin-top:10px;
 }
 
 .nav-item{
@@ -44,14 +56,29 @@
 }
 
 .sub-title{
-  font-size:20px;
-  background:#f79e9e;
-  padding:5px;
+  font-size:25px;
+  font-weight:bold;
+  color:#f28d35;
+  padding:5px 0;
   margin:20px 0;
 }
 
 table{
-  margin:10px;
+  margin:10px 0;
+  border-collapse: collapse;
+}
+
+thead{
+  background:#f79e9e;
+  color:white;
+}
+
+tr{
+  height:50px;
+}
+
+th{
+  width:150px;
 }
 
 .nested-fields{
@@ -71,4 +98,55 @@ table{
   font-family:メイリオ, Meiryo;
   padding:20px;
   color:#111111;
+}
+
+.btn{
+  padding:5px 30px;
+}
+
+.select-field{
+  padding:5px;
+}
+
+/*ページネーション*/
+.pagination{
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* ページネーションのspan */
+.pagination span{
+  text-align: center;
+  width: 50px;
+  font-size: 20px;
+}
+
+/* ページネーションのリンク文字（a） */
+.pagination a{
+  color: #818181;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  padding: 10px;
+}
+
+/* ページネーションの文字にカーソルを載せた時 */
+.pagination a:hover{
+  width: 50px;
+  height: 50px;
+  background-color: #84b8eb;
+  color: #FFF;
+  border-radius: 100%;
+  padding: 10px;
+}
+
+/* 現在のページの数字についての表記 */
+.current{
+  font-weight: bold;
+  color: #84b8eb;
+  padding: 10px;
 }

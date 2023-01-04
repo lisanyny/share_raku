@@ -1,9 +1,11 @@
 <div class="container">
   <span class="sub-title">行き先一覧</span>
   <div class="row">
-    <%= link_to new_admin_place_path do %>
-      <i class="fas fa-circle-plus"></i>
-    <% end %>
+    <div class="col-12" style="text-align:right; font-size:2em;">
+      <%= link_to new_admin_place_path do %>
+        <i class="fas fa-circle-plus"></i>
+      <% end %>
+    </div>
     <table class="table table-hover table-inverse" style="margin:20px;">
       <thead>
         <tr>
@@ -16,7 +18,7 @@
       <tbody>
         <% @places.each do |place| %>
         <tr>
-          <td><%= place.place %></td>
+          <td><%= place.name %></td>
           <td><%= place.address %></td>
           <td><%= link_to "編集", edit_admin_place_path(place.id), class: 'btn btn-info' %></td>
           <td><%= link_to "削除", admin_place_path(place.id), method: :delete, class:'btn btn-danger', "data-confirm" => "削除しますか？" %></td>
@@ -24,5 +26,6 @@
         <% end %>
       </tbody>
     </table>
+     <%= paginate @places %>
   </div>
 </div>

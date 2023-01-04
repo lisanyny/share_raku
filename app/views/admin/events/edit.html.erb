@@ -1,7 +1,7 @@
 <div class="container">
   <span class="sub-title"><%= @event.title %>の予定情報編集</span></br>
+  <%= form_with model: @event, url: admin_event_path(@event.id) do |f| %>
   <div class="row">
-    <%= form_with model: @event, url: admin_event_path(@event.id) do |f| %>
     <table>
       <tr>
         <th>予定名</th>
@@ -17,7 +17,7 @@
       </tr>
       <tr>
         <th>行き先</th>
-        <td><%= f.text_field :place %></td>
+        <td><%= f.select :place_id, options_from_collection_for_select(Place.all, :id, :name) %></td>
         <td></td>
       </tr>
       <tr>
@@ -31,8 +31,8 @@
         <td></td>
       </tr>
     </table>
-    <%= f.submit "変更を保存", class: 'btn btn-success' %>
-    <% end %>
   </div>
+  <%= f.submit "変更を保存", class: 'btn btn-success' %>
+  <% end %>
   <%= link_to "削除", admin_event_confirm_path, class: 'btn btn-danger' %>
 </div>
