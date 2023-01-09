@@ -26,7 +26,13 @@
       <tr>
         <th>行き先</th>
         <td>
-          <%= f.select :place_id, options_from_collection_for_select(Place.all, :id, :name), {include_blank: "選択してください"}, class: 'select-field' %>
+          <%= f.hidden_field :place_id %>
+          <input type="text" autocomplete="on" list="place" id="datalist">
+           <datalist id="place">
+    　　      <% Place.all.each do |place| %>
+              <option class="option_place"><%= place.name %></option>
+            <% end %>
+           </datalist><br>
         </td>
       </tr>
       <tr>
@@ -57,3 +63,11 @@
     <%= f.submit "予定を作成する", class: 'btn btn-success' %>
   <% end %>
 </div>
+
+
+<script>
+$("#datalist").bind('input', function () {
+
+  $("#event_place_id").val(this.value)
+});
+</script>

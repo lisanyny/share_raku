@@ -66,3 +66,6 @@ gem 'simple_calendar', '~> 2.0'
 gem 'rails-i18n'
 
 gem 'cocoon'
+
+gem 'jquery-ui-rails'
+gem 'jquery-rails'

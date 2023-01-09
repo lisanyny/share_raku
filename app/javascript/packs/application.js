@@ -14,9 +14,20 @@ import "bootstrap";
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
-require('jquery')
 import "cocoon";
+
+
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
+
+jQuery(document).on('turbolinks:load', function(){
+var $textarea = $('#datalist');
+
+    $textarea.on('changeValue', function() {
+        alert("")
+    });
+});

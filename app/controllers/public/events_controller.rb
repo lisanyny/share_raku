@@ -52,7 +52,9 @@ class Public::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :place_id, :meet_place, :comment_id,guests_attributes:[ :event_id, :customer_id, :status, :_destroy]).merge(customer_id: current_customer.id)
+    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :meet_place, :comment_id,guests_attributes:[ :event_id, :customer_id, :status, :_destroy])
+    .merge(customer_id: current_customer.id, place_id: Place.find_by(name: params[:event][:place_id]).id)
   end
+  
 
 end

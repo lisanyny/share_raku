@@ -4,5 +4,6 @@ class Public::HomesController < ApplicationController
   end
 
   def about
+    @event = Event.new
   end
 end
