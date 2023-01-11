@@ -21,13 +21,3 @@ import "cocoon";
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
-
-
-jQuery(document).on('turbolinks:load', function(){
-var $textarea = $('#datalist');
-
-    $textarea.on('changeValue', function() {
-        alert("")
-    });
-});

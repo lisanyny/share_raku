@@ -1,7 +1,8 @@
 <div class="container">
   <span class="sub-title">イベントの新規作成</span><br>
   <% if @event.errors.any? %>
-    <%= @event.errors.count %>件のエラーが発生しました
+    <%= @event.errors.count %>件のエラーが発生しました<br>
+    内容を修正してください
     <ul>
       <% @event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -44,7 +45,7 @@
         <td>
           <div>
             <%= f.fields_for :guests do |form| %>
-              <%= render "public/events/guest_fields", f: form %>
+              <%= render "public/events/guest_fields", f: form, customers: @customers  %>
               <div id="detail-association-insertion-point"></div>
             <% end %>
 
@@ -67,7 +68,6 @@
 
 <script>
 $("#datalist").bind('input', function () {
-
   $("#event_place_id").val(this.value)
 });
 </script>

@@ -82,14 +82,6 @@ ActiveRecord::Schema.define(version: 2022_12_28_063807) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-  create_table "event_notices", force: :cascade do |t|
-    t.integer "create_customer_id", null: false
-    t.integer "join_customer_id", null: false
-    t.integer "event_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "events", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "comment_id"
@@ -110,30 +102,11 @@ ActiveRecord::Schema.define(version: 2022_12_28_063807) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "places", force: :cascade do |t|
     t.string "name", null: false
     t.string "address", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "status_notices", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "event_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "statuses", force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "event_id", null: false
-    t.integer "status", default: 0, null: false
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

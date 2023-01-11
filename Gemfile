@@ -67,5 +67,6 @@ gem 'rails-i18n'
 
 gem 'cocoon'
 
-gem 'jquery-ui-rails'
-gem 'jquery-rails'
+gem 'dotenv-rails'
+
+gem "geocoder"

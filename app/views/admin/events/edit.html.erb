@@ -9,15 +9,15 @@
       </tr>
       <tr>
         <th>開催日時</th>
-        <td><%= f.datetime_select :start_time %></td>
+        <td><%= f.datetime_select :start_time, {}, {class: 'select-field'}  %></td>
       </tr>
       <tr>
         <th>終了日時</th>
-        <td><%= f.datetime_select :end_time %></td>
+        <td><%= f.datetime_select :end_time, {}, {class: 'select-field'}  %></td>
       </tr>
       <tr>
         <th>行き先</th>
-        <td><%= f.select :place_id, options_from_collection_for_select(Place.all, :id, :name) %></td>
+        <td><%= f.select :place_id, options_from_collection_for_select(Place.all, :id, :name), {}, {class: 'select-field'}  %></td>
         <td></td>
       </tr>
       <tr>

@@ -1,5 +1,5 @@
 <div class="nested-fields">
-  <%= f.select :customer_id, options_from_collection_for_select(Customer.all, :id, :name), {include_blank: "選択してください"}, class: 'select-field' %>
+  <%= f.select :customer_id, options_from_collection_for_select(@customers, :id, :name), {include_blank: "選択してください"}, class: 'select-field' %>
   <div style="display:inline-block">
       <div class="form-check form-check-inline">
         <%= f.radio_button :status, :participation %>
@@ -15,4 +15,5 @@
       </div>
     </div>
   <%= link_to_remove_association "削除", f %>
+  
   </div>

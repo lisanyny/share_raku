@@ -1,6 +1,7 @@
 class Public::HomesController < ApplicationController
   def top
-    @events = Event.all
+    event_id = Guest.where(customer_id: current_customer.id, status: ["participation", "waiting"]).pluck(:event_id)
+    @events = Event.where(id: event_id)
   end
 
   def about

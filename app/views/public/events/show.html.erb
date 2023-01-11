@@ -23,6 +23,11 @@
         <td></td>
       </tr>
       <tr>
+        <th>住所</th>
+        <td><%= @event.place.address %></td>
+        <td><div id="map"></div></td>
+      </tr>
+      <tr>
         <th>集合場所</th>
         <td><%= @event.meet_place %></td>
         <td></td>
@@ -51,8 +56,8 @@
   <% @event.comments.each do |comment| %>
   <div class="comment-field">
     <div class="comment-status">
-    <%= comment.customer.first_name+comment.customer.last_name %>
-    <%= comment.created_at.strftime('%Y/%m/%d  %H:%M') %><br>
+      <%= comment.customer.first_name+comment.customer.last_name %>
+      <%= comment.created_at.strftime('%Y/%m/%d  %H:%M') %><br>
     </div>
     <%= comment.comment %>
     <div class="comment-status">
@@ -64,3 +69,34 @@
   <% end %>
 
 </div>
+
+<script type="text/javascript">
+  function initMap() {
+    var test ={lat: <%= @event.place.latitude %>, lng: <%= @event.place.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @event.place.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=SECRET_KEY&callback=initMap">
+</script>
