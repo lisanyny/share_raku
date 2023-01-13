@@ -31,6 +31,12 @@
               <%= render "public/events/guest_fields", f: form, customers: @customers  %>
               <div id="detail-association-insertion-point"></div>
           <% end %>
+
+          <%= link_to_add_association "追加", f, :guests, class: 'btn btn-outline-info',data: {
+          association_insertion_node: '#detail-association-insertion-point',
+          association_insertion_method: 'before'
+          } %>
+
         </td>
       </tr>
     </table>

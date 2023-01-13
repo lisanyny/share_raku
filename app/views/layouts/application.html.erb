@@ -24,6 +24,7 @@
            <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul  class="navbar-nav ml-auto">
               <% if current_admin %>
+              <!--ログイン済み管理者-->
                 <li class="nav-item">
                   <%= link_to admin_customers_path do %>
                     <i class="fas fa-users"></i>会員一覧
@@ -49,7 +50,7 @@
                    <i class="fas fa-right-from-bracket"></i>ログアウト
                   <% end %>
                 </li>
-
+                <!--ログイン済みユーザー-->
               <% elsif customer_signed_in? %>
                 <li class="nav-item">
                   <%= link_to homes_top_path do %>
@@ -72,6 +73,7 @@
                   <% end %>
                 </li>
               <% else %>
+              <!--ログイン前-->
                 <li class="nav-item">
                   <%= link_to root_path do %>
                     <i class="fas fa-star"></i>About

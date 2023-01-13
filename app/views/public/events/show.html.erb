@@ -38,6 +38,7 @@
     <%= link_to "編集する", edit_event_path(@event.id), class: 'btn btn-info' %>
   <% end %>
 
+  <!--コメント新規投稿-->
   <div style="margin-top:30px">
   <%= form_with model: [@event, @comment] do |f| %>
     <%= f.text_area :comment, rows: '5', cols: "50", placeholder: 'コメントを入力してください' %><br>
@@ -46,6 +47,7 @@
   </div>
   <br>
 
+  <!--コメント表示-->
   <% @comments.each do |comment| %>
   <div class="comment-field">
     <div class="comment-status">
@@ -60,9 +62,11 @@
     </div>
   </div>
   <% end %>
+  <%= paginate @comments %>
 
 </div>
 
+<!--googlemap実装記述-->
 <style>
 #map {
   height: 250px;

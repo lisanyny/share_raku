@@ -14,7 +14,7 @@
       <tbody>
         <% @comments.each do |comment| %>
         <tr>
-          <td><%= comment.event_id %></td>
+          <td><%= comment.event.title %></td>
           <td><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %></td>
           <td><%= comment.comment %></td>
           <td><%= comment.customer.first_name+comment.customer.last_name %></td>
@@ -23,5 +23,6 @@
         <% end %>
       </tbody>
     </table>
+    <%= paginate @comments %>
   </div>
 </div>

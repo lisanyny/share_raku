@@ -5,10 +5,12 @@ class Admin::EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @guests = @event.guests.all
   end
 
   def edit
     @event = Event.find(params[:id])
+    @guests = @event.guests.all
   end
 
   def update
