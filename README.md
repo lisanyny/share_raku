@@ -34,4 +34,5 @@ https://docs.google.com/spreadsheets/d/1iNy9yzlSHAaYE5Hn16ehuPRv6VdfNBHEwMB3zWBz
 - IDE：Cloud9
 
 ## 使用素材
-- 使用検討中です
+- サイトロゴ https://www.shopify.com/jp/tools/logo-maker
+- アイコン　https://fontawesome.com/

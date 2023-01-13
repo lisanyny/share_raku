@@ -30,7 +30,7 @@
           <%= f.hidden_field :place_id %>
           <input type="text" autocomplete="on" list="place" id="datalist">
            <datalist id="place">
-    　　      <% Place.all.each do |place| %>
+             <% @places.each do |place| %>
               <option class="option_place"><%= place.name %></option>
             <% end %>
            </datalist><br>

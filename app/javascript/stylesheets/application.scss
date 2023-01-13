@@ -1,6 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-
+// カレンダー
 .simple-calendar{
   .day {
     background:white;
@@ -38,6 +38,7 @@
 
 }
 
+// 今日の予定
 .today-area{
    border:3px solid #f28d35;
    border-radius: 50px;
@@ -50,11 +51,17 @@
   margin-top:10px;
 }
 
+// ヘッダーのリンク
+.navbar-toggler{
+  text-align:right;
+}
+
 .nav-item{
   margin-right:20px;
   color:black;
 }
 
+// 各ページのタイトル
 .sub-title{
   font-size:25px;
   font-weight:bold;
@@ -114,7 +121,7 @@ th{
   margin:200px 0;
 }
 
-/*ページネーション*/
+// ページネーション
 .pagination{
   width: 100%;
   margin: auto;
@@ -141,7 +148,7 @@ th{
 .pagination a:hover{
   width: 50px;
   height: 50px;
-  background-color: #84b8eb;
+  background-color: #f79e9e;
   color: #FFF;
   border-radius: 100%;
   padding: 10px;
@@ -149,6 +156,6 @@ th{
 
 .current{
   font-weight: bold;
-  color: #84b8eb;
+  color: #f79e9e;
   padding: 10px;
 }

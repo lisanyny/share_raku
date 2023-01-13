@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_28_063807) do
+ActiveRecord::Schema.define(version: 2023_01_12_045928) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -105,10 +105,10 @@ ActiveRecord::Schema.define(version: 2022_12_28_063807) do
   create_table "places", force: :cascade do |t|
     t.string "name", null: false
     t.string "address", null: false
-    t.float "latitude"
-    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "latitude"
+    t.float "longitude"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

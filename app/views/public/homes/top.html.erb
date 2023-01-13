@@ -13,8 +13,12 @@
   </ul>
 </div>
 
+
 <div style="margin:30px">
 <div style="font-family:メイリオ, Meiryo;">
+  <div style="text-align:right;">
+  <%= link_to "新規イベントの作成", new_event_path, class: 'btn btn-outline-primary' %>
+  </div>
 <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
 </div>
@@ -31,9 +35,6 @@
       </div>
       <% end %>
 
-    </div>
-    <div style="text-align:center;">
-      <%= link_to "新規イベントの作成", new_event_path, class: 'btn btn-outline-warning' %>
     </div>
   </div>
 </div>

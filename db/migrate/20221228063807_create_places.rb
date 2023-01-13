@@ -4,8 +4,6 @@ class CreatePlaces < ActiveRecord::Migration[6.1]
 
       t.string :name, null: false
       t.string :address, null: false
-      t.float :latitude
-      t.float :longitude
 
       t.timestamps
     end

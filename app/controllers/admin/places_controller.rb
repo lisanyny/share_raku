@@ -13,7 +13,7 @@ class Admin::PlacesController < ApplicationController
   end
 
   def index
-    @places = Place.page(params[:page])
+    @places = Place.page(params[:page]).order(address: "ASC")
   end
 
   def edit
@@ -35,7 +35,7 @@ class Admin::PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name, :address)
+    params.require(:place).permit(:name, :address, :latitude, :longitude)
   end
 
 end

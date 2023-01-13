@@ -8,13 +8,14 @@ class Public::EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @comment = Comment.new
-    @comments = @event.comments.all
+    @comments = @event.comments.page(params[:page]).order(id: "DESC")
   end
 
   def new
     @event = Event.new
     @guest = @event.guests.build
     @customers = Customer.where(is_deleted: false)
+    @places = Place.all.order(address: "ASC")
   end
 
   def create
