@@ -37,7 +37,9 @@ Rails.application.routes.draw do
 
     resources :customers, only:[:index, :show, :edit, :update]
     get 'events/:id/confirm', to: 'events#confirm', as: 'event_confirm'
-    resources :events, only:[:index, :show, :edit, :update, :destroy]
+    resources :events, only:[:index, :show, :edit, :update, :destroy] do
+     resources :guests, only:[:edit, :update]
+    end
     resources :comments, only:[:index, :destroy]
     resources :places, only:[:new, :create, :edit, :update, :index, :destroy]
 

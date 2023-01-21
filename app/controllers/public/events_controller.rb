@@ -21,7 +21,7 @@ class Public::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to homes_top_path
+      redirect_to event_path(@event.id)
     else
       render action: :new
     end
@@ -31,6 +31,7 @@ class Public::EventsController < ApplicationController
     @event = Event.find(params[:id])
     @guests = @event.guests.all
     @customers = Customer.where(is_deleted: false)
+    @places = Place.all.order(address: "ASC")
   end
 
   def update

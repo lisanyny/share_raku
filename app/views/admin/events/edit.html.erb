@@ -17,7 +17,7 @@
       </tr>
       <tr>
         <th>行き先</th>
-        <td><%= f.select :place_id, options_from_collection_for_select(Place.all, :id, :name), {}, {class: 'select-field'}  %></td>
+        <td><%= f.select :place_id, options_from_collection_for_select(@places, :id, :name, { selected: @event.place_id }), {}, {class: 'select-field'}  %></td>
         <td></td>
       </tr>
       <tr>
@@ -31,39 +31,32 @@
         <td></td>
       </tr>
     </table>
-    <table class="table table-hover table-inverse">
-      <thead>
-        <tr>
-          <th>参加者名</th>
-          <th>参加状況</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @guests.each do |guest| %>
-        <tr>
-          <td><%= guest.customer.first_name+guest.customer.last_name %></td>
-          <td>
-            <div style="display:inline-block">
-              <div class="form-check form-check-inline">
-               <%= f.radio_button :status, :participation %>
-               <%= f.label :status, "　参加" %>
-              </div>
-              <div class="form-check form-check-inline">
-               <%= f.radio_button :status, :no_join %>
-               <%= f.label :status, "　不参加" %>
-              </div>
-              <div class="form-check form-check-inline">
-               <%= f.radio_button :status, :waiting %>
-               <%= f.label :status, "　選択中" %>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+
   </div>
+  <div style="margin-top:10px; margin-bottom:50px;">
   <%= f.submit "変更を保存", class: 'btn btn-success' %>
   <%= link_to "削除", admin_event_confirm_path, class: 'btn btn-danger' %>
+  </div>
   <% end %>
-</div>
+
+
+ <span class="sub-title">参加状況編集</span>
+  <table class="table table-hover table-inverse">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>参加状況</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @guests.each do |guest| %>
+      <tr>
+        <td><%= guest.customer.first_name+guest.customer.last_name %></td>
+        <td><%= guest.status_i18n %></td>
+        <td><%= link_to "編集する", edit_admin_event_guest_path(@event.id,guest.id), class: 'btn btn-info' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>

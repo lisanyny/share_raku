@@ -11,6 +11,7 @@ class Admin::EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     @guests = @event.guests.all
+    @places = Place.all.order(address: "ASC")
   end
 
   def update
@@ -32,7 +33,8 @@ class Admin::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :title, :customer_id, :album_id, :commnet_id, :status_id, :time, :place_id, :meet_place)
+     params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :meet_place, :comment_id,guests_attributes:[ :event_id, :customer_id, :status, :_destroy])
+    .merge(place_id: Place.find_by(name: params[:event][:place_id]).id)
   end
 
 end

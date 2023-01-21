@@ -18,30 +18,15 @@
       </tr>
       <tr>
         <th>行き先</th>
-        <td><%= f.select :place_id, options_from_collection_for_select(Place.all, :id, :name), {}, {class: 'select-field'} %></td>
+        <td><%= f.select :place_id, options_from_collection_for_select(@places, :id, :name, { selected: @event.place_id }), {}, {class: 'select-field'} %></td>
       </tr>
       <tr>
         <th>集合場所</th>
         <td><%= f.text_field :meet_place %></td>
       </tr>
-       <tr>
-        <th>参加者</th>
-        <td>
-          <%= f.fields_for :guests do |form| %>
-              <%= render "public/events/guest_fields", f: form, customers: @customers  %>
-              <div id="detail-association-insertion-point"></div>
-          <% end %>
-
-          <%= link_to_add_association "追加", f, :guests, class: 'btn btn-outline-info',data: {
-          association_insertion_node: '#detail-association-insertion-point',
-          association_insertion_method: 'before'
-          } %>
-
-        </td>
-      </tr>
     </table>
   </div>
-  <div style="margin-top:50px; margin-bottom:150px;">
+  <div style="margin-top:10px; margin-bottom:50px;">
   <%= f.submit "変更を保存", class: 'btn btn-success' %>
   <%= link_to "イベント削除", event_confirm_path, class: 'btn btn-danger' %>
   </div>
@@ -66,3 +51,4 @@
       <% end %>
     </tbody>
   </table>
+</div>
