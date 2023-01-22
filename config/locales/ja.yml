@@ -1,0 +1,36 @@
+ja:
+  simple_calendar:
+    previous: "<<　"
+    next: "　>>"
+  enums:
+    guest:
+      status:
+        participation: "参加"
+        no_join: "不参加"
+        waiting: "選択中"
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: "..."
+  activerecord:
+    models:
+      customer: "ユーザー"
+    attributes:
+      customer:
+        email: "メールアドレス"
+        password: "パスワード"
+    models:
+      event: "イベント"
+    attributes:
+      event:
+        place: "行き先"
+        title: "イベント名"
+      event/guests:
+        customer: "参加者"
+  errors:
+    messages:
+      not_saved: "会員登録に失敗しました"
+  

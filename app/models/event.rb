@@ -8,6 +8,5 @@ class Event < ApplicationRecord
 
 
  validates :title, presence: true
- validates :place_id, presence: true
 
 end

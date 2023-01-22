@@ -23,6 +23,8 @@ class Public::EventsController < ApplicationController
     if @event.save
       redirect_to event_path(@event.id)
     else
+      @places = Place.all.order(address: "ASC")
+      @customers = Customer.where(is_deleted: false)
       render action: :new
     end
   end
@@ -46,7 +48,7 @@ class Public::EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @event.delete
+    @event.destroy
     redirect_to my_page_path
   end
 
@@ -58,14 +60,19 @@ class Public::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :meet_place, :comment_id,guests_attributes:[ :event_id, :customer_id, :status, :_destroy])
-    .merge(customer_id: current_customer.id, place_id: Place.find_by(name: params[:event][:place_id]).id)
+    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :meet_place,guests_attributes:[ :event_id, :customer_id, :status, :_destroy])
+    .merge(customer_id: current_customer.id, place_id: sarch_place_id)
   end
 
   def event_update_params
-    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :meet_place, :comment_id,guests_attributes:[ :event_id, :customer_id, :status, :_destroy])
+    params.require(:event).permit(:date, :title, :customer_id, :start_time, :end_time, :meet_place,guests_attributes:[ :event_id, :customer_id, :status, :_destroy])
     .merge(customer_id: current_customer.id, place_id: params[:event][:place_id])
   end
 
-
+  def sarch_place_id
+    place = Place.find_by(name: params[:event][:place_id])
+    if place
+      place.id
+    end
+  end
 end

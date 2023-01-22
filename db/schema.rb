@@ -84,7 +84,6 @@ ActiveRecord::Schema.define(version: 2023_01_12_045928) do
 
   create_table "events", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "comment_id"
     t.datetime "start_time", null: false
     t.datetime "end_time", null: false
     t.string "meet_place", default: "現地集合", null: false
