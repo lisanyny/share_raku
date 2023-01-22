@@ -30,7 +30,12 @@ ja:
         title: "イベント名"
       event/guests:
         customer: "参加者"
+    models:
+      place: "行き先"
+    attributes:
+      place:
+        name: "行き先"
+        address: "住所"
   errors:
     messages:
       not_saved: "会員登録に失敗しました"
-  
