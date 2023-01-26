@@ -32,7 +32,7 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to admin_events_path do %>
-                    <i class="fas fa-calendar-days"></i>イベント一覧
+                    <i class="fas fa-calendar-alt"></i>イベント一覧
                   <% end %>
                 </li>
                 <li class="nav-item">
@@ -47,7 +47,7 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to destroy_admin_session_path,  method: :delete do %>
-                   <i class="fas fa-right-from-bracket"></i>ログアウト
+                   <i class="fas fa-sign-out"></i>ログアウト
                   <% end %>
                 </li>
                 <!--ログイン済みユーザー-->
@@ -64,12 +64,12 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to events_path do %>
-                    <i class="fas fa-calendar-days"></i>イベント一覧
+                    <i class="fas fa-calendar-alt"></i>イベント一覧
                   <% end %>
                 </li>
                 <li class="nav-item">
                   <%= link_to destroy_customer_session_path,  method: :delete do %>
-                    <i class="fas fa-arrow-right-from-bracket"></i>ログアウト
+                    <i class="fas fa-sign-out"></i>ログアウト
                   <% end %>
                 </li>
               <% else %>
@@ -86,7 +86,7 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to new_customer_session_path do %>
-                    <i class="fas fa-right-to-bracket"></i>ログイン
+                    <i class="fas fa-sign-in"></i>ログイン
                   <% end %>
                 </li>
               <% end %>
