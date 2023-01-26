@@ -23,11 +23,12 @@
   <%= date.day %>
 </div>
 
+<!--カレンダー上の表示-->
   <div class="container">
     <div class="row">
       <div style="height:150px; width:120px;">
         <% events.each do |event| %>
-          <li>
+          <li style="list-style:none;">
           <%= link_to event.title, event_path(event.id) %><br>
           <%= event.start_time.strftime("%H:%M") %><span>〜</span><%= event.end_time.strftime("%H:%M") %>
           </li>
