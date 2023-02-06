@@ -1,5 +1,5 @@
 <div class="container">
-  <span class="sub-title"><%= @customer.first_name+@customer.last_name %>さんの会員詳細</span></br>
+  <span class="sub-title"><%= @customer.first_name+' '+@customer.last_name %>さんの会員詳細</span></br>
   <div class="row">
     <table>
       <tr>
@@ -8,7 +8,7 @@
       </tr>
       <tr>
         <th>名前</th>
-        <td><%= @customer.first_name+@customer.last_name %></td>
+        <td><%= @customer.first_name+' '+@customer.last_name %></td>
       </tr>
       <tr>
         <th>メールアドレス</th>
@@ -18,9 +18,9 @@
         <th>会員ステータス</th>
         <td>
           <% if @customer.is_deleted == true %>
-            <strong>退会</strong>
+            <span class="status-deleted">退会</span>
           <% else %>
-            <strong>有効</strong>
+            <span class="status-hold">有効</span>
           <% end %>
         </td>
       </tr>

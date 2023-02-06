@@ -8,7 +8,7 @@
 
 Admin.create!(
    email: 'admin@admin.com',
-   password: 'admintest'
+   password: '123456'
   )
 
 customer = Customer.create!(

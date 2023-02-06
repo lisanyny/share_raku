@@ -1,5 +1,14 @@
 <div class="container">
-  <span class="sub-title"><%= @event.title %>のイベント情報編集</span>
+  <span class="sub-title"><%= @event.title %>のイベント情報編集</span></br>
+  <% if @event.errors.any? %>
+    <%= @event.errors.count %>件のエラーが発生しました<br>
+    内容を修正してください
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <%= form_with model: @event, url: event_path(@event.id) do |f| %>
   <div class="row">
@@ -24,6 +33,11 @@
         <th>集合場所</th>
         <td><%= f.text_field :meet_place %></td>
       </tr>
+      <tr>
+        <th>参加者</th>
+        <td>
+        </td>
+      </tr>
     </table>
   </div>
   <div style="margin-top:10px; margin-bottom:50px;">
@@ -44,7 +58,7 @@
     <tbody>
       <% @guests.each do |guest| %>
       <tr>
-        <td><%= guest.customer.first_name+guest.customer.last_name %></td>
+        <td><%= guest.customer.first_name+' '+guest.customer.last_name %></td>
         <td><%= guest.status_i18n %></td>
         <td><%= link_to "編集する", edit_event_guest_path(@event.id,guest.id), class: 'btn btn-info' %></td>
       </tr>

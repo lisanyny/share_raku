@@ -13,7 +13,7 @@
     <tbody>
       <% @guests.each do |guest| %>
       <tr>
-        <td><%= guest.customer.first_name+guest.customer.last_name %></td>
+        <td><%= guest.customer.first_name+' '+guest.customer.last_name %></td>
         <td><%= guest.status_i18n %></td>
         <td>
           <% if guest.customer.id == current_customer.id %>

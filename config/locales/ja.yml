@@ -18,21 +18,19 @@ ja:
   activerecord:
     models:
       customer: "ユーザー"
+      event: "イベント"
+      place: "行き先"
+
     attributes:
       customer:
         email: "メールアドレス"
         password: "パスワード"
-    models:
-      event: "イベント"
-    attributes:
       event:
         place: "行き先"
         title: "イベント名"
+        meet_place: "集合場所"
       event/guests:
         customer: "参加者"
-    models:
-      place: "行き先"
-    attributes:
       place:
         name: "行き先"
         address: "住所"

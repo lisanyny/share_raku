@@ -38,6 +38,15 @@
 
 }
 
+.list-mark{
+  list-style:'●';
+  color:#f79e9e;
+}
+
+.time-area{
+  color:#111111;
+}
+
 // 今日の予定
 .today-area{
    border:3px solid #f28d35;
@@ -51,6 +60,11 @@
   margin-top:10px;
 }
 
+.today-title{
+  margin-left:30px;
+  font-size:20px;
+}
+
 // ヘッダーのリンク
 .navbar-nav{
   text-align:right;
@@ -58,7 +72,41 @@
 
 .nav-item{
   margin-right:20px;
-  color:black;
+}
+
+.nav-item:last-child{
+  margin-right:0;
+}
+
+.link{
+  color:#f28d35;
+  font-weight: bold;
+}
+
+.link:hover{
+  color:#bf0f0f;
+}
+
+// 会員情報リンク
+.customer_link{
+  color:#111111;
+  font-weight: bold;
+}
+
+.status-deleted{
+  color:#818181;
+  font-weight: bold;
+}
+
+.status-hold{
+ color:#bf0f0f;
+ font-weight: bold;
+}
+
+// イベント名リンク
+.event-link{
+  color:#111111;
+  font-weight: bold;
 }
 
 // 各ページのタイトル

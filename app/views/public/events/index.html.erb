@@ -17,7 +17,7 @@
           <tr>
             <td><%= event.start_time.strftime("%Y/%m/%d (%a)") %></td>
             <td><%= event.start_time.strftime("%H:%M") %>〜<%= event.end_time.strftime("%H:%M") %></td>
-            <td><%= link_to event.title, event_path(event.id) %></td>
+            <td><%= link_to event.title, event_path(event.id), class: 'event-link' %></td>
             <td><%= event.guests.where.not(status: 2).count %>人</td>
             <td><%= event.customer.first_name+event.customer.last_name %></td>
           </tr>

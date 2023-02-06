@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     get 'customers/my_page', to: 'customers#show', as: 'my_page'
     get 'customers/confirm', to: 'customers#confirm', as: 'customer_confirm'
     patch 'customer/thanks', to: 'customers#thanks', as: 'thanks'
-    get 'customers/information/edit', to: 'customers#edit', as: 'edit_information'
+    get 'customers/information/edit/:id', to: 'customers#edit', as: 'edit_information'
     patch 'customers/information', to: 'customers#update', as: 'update_information'
     get 'events/:id/confirm', to: 'events#confirm', as: 'event_confirm'
     get 'events/:id/guests', to: 'events#guests', as: 'event_guests'

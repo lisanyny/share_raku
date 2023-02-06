@@ -1,5 +1,14 @@
 <div class="container">
   <span class="sub-title"><%= @event.title %>の予定情報編集</span></br>
+  <% if @event.errors.any? %>
+    <%= @event.errors.count %>件のエラーが発生しました<br>
+    内容を修正してください
+    <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= form_with model: @event, url: admin_event_path(@event.id) do |f| %>
   <div class="row">
     <table>

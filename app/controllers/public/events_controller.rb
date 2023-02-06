@@ -1,4 +1,5 @@
 class Public::EventsController < ApplicationController
+  before_action :authenticate_customer!
   def index
     @customer_name = current_customer.first_name
     event_id = Guest.where(customer_id: current_customer.id, status: ["participation", "waiting"]).pluck(:event_id)
@@ -25,7 +26,7 @@ class Public::EventsController < ApplicationController
     else
       @places = Place.all.order(address: "ASC")
       @customers = Customer.where(is_deleted: false)
-      render action: :new
+      render :new
     end
   end
 
@@ -34,12 +35,21 @@ class Public::EventsController < ApplicationController
     @guests = @event.guests.all
     @customers = Customer.where(is_deleted: false)
     @places = Place.all.order(address: "ASC")
+    unless @event.customer == current_customer
+      redirect_to homes_top_path
+    end
   end
 
   def update
     @event = Event.find(params[:id])
-    @event.update!(event_update_params)
-    redirect_to event_path(@event.id)
+    if @event.update(event_update_params)
+      redirect_to event_path(@event.id)
+    else
+      @guests = @event.guests.all
+      @customers = Customer.where(is_deleted: false)
+      @places = Place.all.order(address: "ASC")
+      render :edit
+    end
   end
 
   def confirm

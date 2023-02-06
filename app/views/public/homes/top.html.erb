@@ -7,7 +7,7 @@
   <ul>
     <% @events.each do |event| %>
       <% if event.start_time.to_date == Date.today %>
-        <li><%= event.title %></li>
+        <li class='today-title'><%= link_to event.title, event_path(event.id), class: 'event-link' %></li>
       <% end %>
     <% end %>
   </ul>
@@ -28,9 +28,11 @@
     <div class="row">
       <div style="height:150px; width:120px;">
         <% events.each do |event| %>
-          <li style="list-style:none;">
-          <%= link_to event.title, event_path(event.id) %><br>
-          <%= event.start_time.strftime("%H:%M") %><span>〜</span><%= event.end_time.strftime("%H:%M") %>
+          <li class="list-mark">
+          <%= link_to event.title, event_path(event.id), class: 'event-link' %><br>
+          <div class="time-area">
+            <%= event.start_time.strftime("%H:%M") %><span>〜</span><%= event.end_time.strftime("%H:%M") %>
+          </div>
           </li>
         <% end %>
       </div>
