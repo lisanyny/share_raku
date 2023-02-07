@@ -2,7 +2,7 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
   def show
     @customer = current_customer
-    @events = current_customer.events.page(params[:page]).order(start_time: "ASC")
+    @events = current_customer.events.page(params[:page]).order(start_time: "DESC")
   end
 
   def edit

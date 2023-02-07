@@ -16,9 +16,9 @@
 
 <div style="margin:30px">
 <div style="font-family:メイリオ, Meiryo;">
-  <div style="text-align:right;">
-  <%= link_to "新規イベントの作成", new_event_path, class: 'btn btn-outline-primary' %>
-  </div>
+  <%= link_to new_event_path, class: 'new-event-link' do %>
+    <i class="fas fa-plus-circle"></i>新規イベントの作成
+  <% end %>
 <%= month_calendar events: @events do |date, events| %>
   <%= date.day %>
 </div>
@@ -26,7 +26,7 @@
 <!--カレンダー上の表示-->
   <div class="container">
     <div class="row">
-      <div style="height:150px; width:120px;">
+      <div class="col-12" style="height:150px;">
         <% events.each do |event| %>
           <li class="list-mark">
           <%= link_to event.title, event_path(event.id), class: 'event-link' %><br>

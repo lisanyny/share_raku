@@ -45,6 +45,20 @@
 
 .time-area{
   color:#111111;
+  padding-left:20px;
+}
+
+.calendar-heading{
+  text-align: center;
+  font-size:30px;
+  font-weight: bold;
+}
+
+.new-event-link{
+  color:#bf0f0f;
+  font-size:20px;
+  font-weight: bold;
+  padding-left:20px;
 }
 
 // 今日の予定
@@ -56,6 +70,7 @@
 }
 
 .today-event{
+  font-family:メイリオ, Meiryo;
   font-size:20px;
   margin-top:10px;
 }
@@ -63,6 +78,23 @@
 .today-title{
   margin-left:30px;
   font-size:20px;
+}
+
+// ログイン時のリンク
+.session-link{
+  color:#111111;
+  font-size:20px;
+  font-weight:bold;
+}
+
+// Aboutページの設定
+.about{
+  margin-top:30px;
+  font-family:Arial-Black,メイリオ, Meiryo;
+}
+
+.about-title{
+  color:#bf0f0f
 }
 
 // ヘッダーのリンク
@@ -109,6 +141,10 @@
   font-weight: bold;
 }
 
+.event-link:hover{
+  color:#bf0f0f;
+}
+
 // 各ページのタイトル
 .sub-title{
   font-size:25px;
@@ -118,6 +154,7 @@
   margin:20px 0;
 }
 
+// テーブルのレイアウト
 table{
   margin:10px 0;
   border-collapse: collapse;
@@ -141,6 +178,7 @@ th{
   margin:10px;
 }
 
+// コメントのレイアウト
 .comment-status{
  padding:10px 0;
 }
@@ -149,16 +187,19 @@ th{
   border-top:solid;
 }
 
+// 全体の書式
 .container{
   font-family:メイリオ, Meiryo;
   padding:20px;
   color:#111111;
 }
 
+// ボタンのレイアウト
 .btn{
   padding:5px 30px;
 }
 
+// セレクトボタン
 .select-field{
   padding:5px;
   height:30px;
