@@ -43,10 +43,6 @@ class Public::EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_update_params)
-      guests = params[:event][:guest]
-      guests.each do |k,status|
-        Guest.update(status: status.values[0])
-      end
       redirect_to event_path(@event.id)
     else
       @guests = @event.guests.all
