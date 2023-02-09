@@ -45,7 +45,7 @@
         <td>
           <div>
             <%= f.fields_for :guests do |form| %>
-              <%= render "public/events/guest_fields", f: form, customers: @customers  %>
+              <%= render "public/events/guest_fields", f: form %>
               <div id="detail-association-insertion-point"></div>
             <% end %>
 
