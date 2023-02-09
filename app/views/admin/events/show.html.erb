@@ -1,6 +1,7 @@
 <div class="container">
   <span class="sub-title"><%= @event.title %>の予定詳細</span></br>
   <div class="row">
+    <div class="col-10">
     <table>
       <tr>
         <th>予定名</th>
@@ -27,7 +28,9 @@
         <td><%= @event.customer.name %></td>
       </tr>
     </table>
+    </div>
 
+    <div class="col-8">
     <table class="table table-hover table-inverse">
       <thead>
         <tr>
@@ -38,12 +41,13 @@
       <tbody>
         <% @guests.each do |guest| %>
         <tr>
-          <td><%= guest.customer.first_name+guest.customer.last_name %></td>
+          <td><%= guest.customer.first_name+' '+guest.customer.last_name %></td>
           <td><%= guest.status_i18n %></td>
         </tr>
         <% end %>
       </tbody>
     </table>
+    </div>
 
   </div>
   <%= link_to "編集する", edit_admin_event_path(@event.id), class: 'btn btn-info' %>

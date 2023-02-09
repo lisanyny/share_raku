@@ -1,7 +1,7 @@
 class Admin::EventsController < ApplicationController
 
   def index
-    @events = Event.page(params[:page]).order(start_time: "ASC")
+    @events = Event.page(params[:page]).order(start_time: "DESC")
   end
 
   def show
@@ -12,6 +12,7 @@ class Admin::EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     @guests = @event.guests.all
+    @customers = Customer.where(is_deleted: false)
     @places = Place.all.order(address: "ASC")
   end
 
