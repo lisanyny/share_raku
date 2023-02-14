@@ -39,56 +39,43 @@
           <td><%= f.text_field :meet_place %></td>
           <td></td>
         </tr>
-      </table>
-    </div>
-    <div class="col-10">
-      <table>
         <tr>
-          <th>参加者</th>
-          <td></td>
+          <th>参加者の追加</th>
+          <td>
+            <div id="detail-association-insertion-point"></div>
+            <%= link_to_add_association "追加", f, :guests, class: 'btn btn-outline-info',data: {
+            association_insertion_node: '#detail-association-insertion-point',
+            association_insertion_method: 'before'
+            } %>
+          </td>
         </tr>
-
       </table>
-      <div>
-        <% @event.guests.each do |guest| %>
-          <%= f.fields_for "guest[]", guest do |form| %>
-            <table>
-              <tr>
-                <th></th>
-                <td class="guest-name">
-                  <%= guest.customer.first_name+' '+guest.customer.last_name %>
-                </td>
-                <td>
-                  <div style="display:inline-block">
-                    <div class="form-check form-check-inline">
-                      <%= form.radio_button :status, :participation %>
-                      <%= form.label :status, "　参加" %>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <%= form.radio_button :status, :no_join %>
-                      <%= form.label :status, "　不参加" %>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <%= form.radio_button :status, :waiting %>
-                      <%= form.label :status, "　選択中" %>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </table>
-          <% end %>
-        <% end %>
-        <div id="detail-association-insertion-point"></div>
-      </div>
-      <%= link_to_add_association "参加者の追加", f, :guests, class: 'btn btn-outline-info',data: {
-        association_insertion_node: '#detail-association-insertion-point',
-        association_insertion_method: 'prepend'
-        } %>
     </div>
-  </div>
-  <div style="margin-top:10px; margin-bottom:50px;">
-    <%= f.submit "変更を保存", class: 'btn btn-success' %>
-    <%= link_to "イベント削除", event_confirm_path, class: 'btn btn-danger' %>
-    <% end %>
+     <div style="margin-top:10px; margin-bottom:50px;">
+      <%= f.submit "変更を保存", class: 'btn btn-success' %>
+      <%= link_to "イベント削除", event_confirm_path, class: 'btn btn-danger' %>
+      <% end %>
+     </div>
+    <div class="col-10">
+      <span class="sub-title">参加状況編集</span>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>名前</th>
+            <th>参加状況</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @guests.each do |guest| %>
+          <tr>
+            <td><%= guest.customer.first_name+guest.customer.last_name %></td>
+            <td><%= guest.status_i18n %></td>
+            <td><%= link_to "編集する", edit_event_guest_path(@event.id,guest.id), class: 'btn btn-info' %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
